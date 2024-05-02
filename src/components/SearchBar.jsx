@@ -18,11 +18,16 @@ const SearchBar = ({ setPokemonData, setInSearch, setLoader }) => {
         setInSearch(true);
         setLoader(true);
 
-        let response = await getPokemonByName(searchWord.toLocaleLowerCase());
-
+        let response = await getPokemonByName(searchWord.toLowerCase());
         console.log(response);
-        setPokemonData(response);
-        setLoader(false);
+        if (response.status === 204) {
+          toast.warning("Cannot find this pokemon!");
+          setLoader(false);
+          setPokemonData([]);
+        } else {
+          setPokemonData(response.data);
+          setLoader(false);
+        }
       }
     } catch (err) {
       setLoader(false);
