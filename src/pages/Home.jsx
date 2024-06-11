@@ -51,18 +51,18 @@ const Home = () => {
           paginationStart === 0 ? 0 : paginationStart - 1
         }`;
         let response = await getPokemons(values);
-        // let results = response[0].results;
+        let results = response[0].results;
 
         // adding pokemon type colors
-        // for (let i = 0; i < results?.length; i++) {
-        //   for (let j = 0; j < results[i]?.types.length; j++) {
-        //     let matchingKey = Object.keys(pokemonTypeColours).filter(
-        //       // eslint-disable-next-line no-loop-func
-        //       (key) => key === results[i].types[j].type.name
-        //     );
-        //     results[i].types[j].type.color = pokemonTypeColours[matchingKey];
-        //   }
-        // }
+        for (let i = 0; i < results?.length; i++) {
+          for (let j = 0; j < results[i]?.types.length; j++) {
+            let matchingKey = Object.keys(pokemonTypeColours).filter(
+              // eslint-disable-next-line no-loop-func
+              (key) => key === results[i].types[j].type.name
+            );
+            results[i].types[j].type.color = pokemonTypeColours[matchingKey];
+          }
+        }
 
         setPokemonData(response);
         setLoader(false);

@@ -12,7 +12,7 @@ const SearchBar = ({ setPokemonData, setInSearch, setLoader }) => {
     e.preventDefault();
     const regex = /^[a-zA-Z]+$/;
     try {
-      if (!searchWord.match(regex)) {
+      if (false) {
         toast.error("Please enter alphabets!");
       } else {
         setInSearch(true);

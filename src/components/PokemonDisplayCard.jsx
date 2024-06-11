@@ -15,6 +15,8 @@ const PokemonDisplayCard = ({ item }) => {
     return pokemonTypeColours[matchingKey];
   };
 
+  console.log(item);
+
   return (
     <div
       className="cardContent mb-10 py-4 bg-[#272758] shadow-xl rounded-md 
@@ -41,10 +43,9 @@ const PokemonDisplayCard = ({ item }) => {
       <div className="pokemonTypeContainer flex gap-2 justify-center mt-2">
         {item.types?.map((item, index) => (
           <div
-            className={`px-4 py-1 text-xs text-white font-medium rounded bg-[${colorAccordingToType(
-              item.type.name
-            )}]`}
+            className={`px-4 py-1 text-xs text-white font-medium rounded`}
             key={index}
+            style={{ backgroundColor: `${item.type.color}` }}
           >
             {item.type.name.toUpperCase()}
           </div>

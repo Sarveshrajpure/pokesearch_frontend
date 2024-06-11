@@ -69,12 +69,6 @@ const PokemonDetails = () => {
     ],
   };
 
-  const colorAccordingToType = (type) => {
-    const matchingKey = Object.keys(pokemonTypeColours).filter((key) => key === type);
-
-    return pokemonTypeColours[matchingKey];
-  };
-
   return (
     <div className="mt-20 md:px-40 px-5 ">
       <div className="pokeDetailsContainer ">
@@ -118,9 +112,8 @@ const PokemonDetails = () => {
                   <div className="flex gap-2 justify-center mt-2">
                     {item.types?.map((item, index) => (
                       <div
-                        className={`px-8 py-1 text-sm text-white font-medium rounded bg-[${colorAccordingToType(
-                          item.type.name
-                        )}]`}
+                        className={`px-8 py-1 text-sm text-white font-medium rounded `}
+                        style={{ backgroundColor: `${item.type.color}` }}
                         key={index}
                       >
                         {item.type.name.toUpperCase()}
