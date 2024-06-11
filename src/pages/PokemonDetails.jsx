@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
-import pokemonTypeColours from "../constants/constants";
 
 import {
   Chart as ChartJS,

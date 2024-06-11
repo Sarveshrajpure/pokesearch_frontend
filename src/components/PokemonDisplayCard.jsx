@@ -1,5 +1,4 @@
 import React from "react";
-import pokemonTypeColours from "../constants/constants";
 import { useNavigate } from "react-router-dom";
 
 const PokemonDisplayCard = ({ item }) => {
@@ -8,14 +7,6 @@ const PokemonDisplayCard = ({ item }) => {
   const handleNavigate = () => {
     navigate("/pokedetails", { state: item });
   };
-
-  const colorAccordingToType = (type) => {
-    const matchingKey = Object.keys(pokemonTypeColours).filter((key) => key === type);
-
-    return pokemonTypeColours[matchingKey];
-  };
-
-  console.log(item);
 
   return (
     <div
